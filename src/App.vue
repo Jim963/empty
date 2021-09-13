@@ -3,8 +3,11 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <router-link to="/pageTest">pageTest</router-link>
     </div>
-    <router-view/>
+    <mainheader></mainheader>
+    <router-view />
+    <mainfooter></mainfooter>
   </div>
 </template>
 

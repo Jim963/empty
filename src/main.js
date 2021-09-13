@@ -10,6 +10,14 @@ import store from './store'
 import axios from 'axios'
 Vue.prototype.$axios = axios
 
+//共用組件掛載
+import mainfooter from "@/components/mainFooter.vue"
+import mainheader from "@/components/mainHeader.vue"
+
+Vue.component("mainfooter",mainfooter);
+Vue.component("mainheader",mainheader);
+
+
 Vue.config.productionTip = false
 
 new Vue({
