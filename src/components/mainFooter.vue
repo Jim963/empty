@@ -8,7 +8,7 @@
     >
       <div
         :class="['btn',item.type == 'dark' ?'btn-dark':'btn-light']"
-        @click="changeColorMode(item.valuebg, item.valuecolor)"
+        @click="changeColorMode(item)"
       >
         {{ item.name }}
       </div>
@@ -24,15 +24,17 @@ export default {
   data() {
     return {
       colorMode: [
-        { name: "Dark mode",type:'dark', valuebg: "black", valuecolor: "white" },
-        { name: "Light mode",type:'light', valuebg: "white", valuecolor: "black" },
+        { name: "Dark mode",type:'dark', valuebg: "#2c3e50", valuecolor: "white",valuecomponents:'rgb(32, 56, 92)'},
+        { name: "Light mode",type:'light', valuebg: "white", valuecolor: "#2c3e50",valuecomponents:'rgb(212, 238, 231)'},
       ],
     };
   },
   methods: {
-    changeColorMode(bgcolor, color) {
-      document.documentElement.style.setProperty("--backgroundColor", bgcolor);
-      document.documentElement.style.setProperty("--color", color);
+    changeColorMode(data) {
+      document.documentElement.style.setProperty("--backgroundColor", data.valuebg);
+      document.documentElement.style.setProperty("--color", data.valuecolor);
+            document.documentElement.style.setProperty("--component", data.valuecomponents);
+
     },
   },
 };

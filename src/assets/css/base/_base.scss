@@ -11,7 +11,7 @@
   
   #nav a {
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--color);
     padding: 10px;
   }
   
@@ -21,8 +21,9 @@
   }
 
 :root{
-    --backgroundColor:black;
+    --backgroundColor:#2c3e50;
     --color:white;
+    --component:rgb(32, 56, 92);
 }
 
 body{
