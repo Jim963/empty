@@ -1,0 +1,15 @@
+.row {
+  margin: 0;
+  padding: 0;
+}
+.layout_mainframe {
+  width: 100%;
+  height: calc(100vh - 160px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.layout_mainframe::-webkit-scrollbar {
+  display: none;
+}
+

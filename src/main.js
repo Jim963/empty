@@ -6,6 +6,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+//共用文件掛載
+import "@/assets/css/app.scss";
+
 //axios掛載
 import axios from 'axios'
 Vue.prototype.$axios = axios

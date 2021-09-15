@@ -1,0 +1,14 @@
+.oftenuse_center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.oftenuse_relative {
+  position: relative;
+}
+
+.oftenuse_height100{
+    height: 100%;
+}

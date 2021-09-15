@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import testStore from './testStore'
+import todo from './todo'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    testStore
+    todo
   }
 })

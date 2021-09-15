@@ -1,35 +1,57 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import pageTest from '../views/pageTest.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import pageTest from "../views/pageTest.vue";
 
-
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
+    meta: {
+      title: "home",
+      content: {
+        description: "this is home",
+      },
+    },
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: "/pageTest",
+    name: "pageTest",
+    component: pageTest,
+    meta: {
+      title: "pageTest",
+      content: {
+        description: "this is pageTest",
+      },
+    },
   },
-  {
-    path: '/pageTest',
-    name: 'pageTest',
-    component: pageTest
-  },
-
-]
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  }
+
+  if (to.meta.content) {
+    let description = document.querySelector("meta[name='description']");
+
+    description ? description.remove() : "";
+
+    let head = document.getElementsByTagName("head");
+    let meta = document.createElement("meta");
+    meta.setAttribute("name", "description");
+    meta.setAttribute("content", to.meta.content.description);
+    // meta.content = to.meta.content.description;
+    head[0].appendChild(meta);
+  }
+  next();
+});
+
+export default router;
